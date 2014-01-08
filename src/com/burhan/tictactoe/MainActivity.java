@@ -22,6 +22,13 @@ public class MainActivity extends Activity {
 		
 		initUI();
 		startNewGame();
+		updateView();
+		
+		//test
+		setMove(TicTacToeGame.COMPUTER_PLAYER, 1);
+		setMove(TicTacToeGame.COMPUTER_PLAYER, 3);
+		setMove(TicTacToeGame.COMPUTER_PLAYER, 7);
+		
 	}
 
 	private void initUI() {
@@ -50,6 +57,26 @@ public class MainActivity extends Activity {
 		}
 	}
 
+
+	private void setMove(char player, int location){
+		if (mBoardButtons[location].isEnabled()) {
+			mBoardButtons[location].setEnabled(false);
+			mGame.setMove(player, location);
+			updateView();
+		}
+	}
+	private void updateView() {
+		char board[] = mGame.getBoard();
+		for(int i=0; i<board.length;i++){
+			mBoardButtons[i].setText(String.valueOf(board[i]));
+			if(board[i] == TicTacToeGame.HUMAN_PLAYER){
+				mBoardButtons[i].setTextColor(Color.rgb(0, 200, 0));
+			}else{
+				mBoardButtons[i].setTextColor(Color.rgb(200, 0, 0));
+			}
+			
+		}
+	}
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -66,24 +93,11 @@ public class MainActivity extends Activity {
 			this.location = location;
 		}
 
-		private void setMove(char player, int location) {
-			mGame.setMove(player, location);
-			updateView();
-		}
-
-		private void updateView() {
-			char board[] = mGame.getBoard();
-			for(int i=0; i<board.length;i++){
-				mBoardButtons[i].setText(String.valueOf(board[i]));
-				mBoardButtons[i].setTextColor(Color.rgb(0, 200, 0));
-			}
-		}
 
 		@Override
 		public void onClick(View v) {
 			if(mBoardButtons[location].isEnabled()){
 				setMove(TicTacToeGame.HUMAN_PLAYER, location);
-				mBoardButtons[location].setEnabled(false);
 			}
 		}
 		

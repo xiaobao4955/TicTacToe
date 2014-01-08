@@ -23,7 +23,15 @@ public class TicTacToeGame {
 	}
 
 	public char[] getBoard() {
-		return board;
+		return immutable(board);
+	}
+
+	private char[] immutable(char[] array2Copy) {
+		char returnArray[] = new char[array2Copy.length];
+		for(int i=0;i<array2Copy.length;i++){
+			returnArray[i] = array2Copy[i];
+		}
+		return returnArray;
 	}
 
 }
