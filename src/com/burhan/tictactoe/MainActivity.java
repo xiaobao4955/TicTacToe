@@ -1,5 +1,7 @@
 package com.burhan.tictactoe;
 
+import java.util.Arrays;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.Color;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -62,19 +65,22 @@ public class MainActivity extends Activity {
 
 	private void setMove(char player, int location){
 		if (mBoardButtons[location].isEnabled()) {
-			mBoardButtons[location].setEnabled(false);
-			mGame.setMove(player, location);
+			boolean result =mGame.setMove(player, location);
+			Toast.makeText(this, result ?"true":"false" , Toast.LENGTH_SHORT).show();
 			updateView();
 		}
 	}
 	private void updateView() {
 		char board[] = mGame.getBoard();
+		
 		for(int i=0; i<board.length;i++){
 			mBoardButtons[i].setText(String.valueOf(board[i]));
 			if(board[i] == TicTacToeGame.HUMAN_PLAYER){
 				mBoardButtons[i].setTextColor(Color.rgb(0, 200, 0));
-			}else{
+				mBoardButtons[i].setEnabled(false);
+			}else if (board[i] == TicTacToeGame.COMPUTER_PLAYER){
 				mBoardButtons[i].setTextColor(Color.rgb(200, 0, 0));
+				mBoardButtons[i].setEnabled(false);
 			}
 			
 		}

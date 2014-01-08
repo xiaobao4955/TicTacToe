@@ -1,5 +1,7 @@
 package com.burhan.tictactoe;
 
+import android.util.Log;
+
 
 public class TicTacToeGame {
 
@@ -10,7 +12,7 @@ public class TicTacToeGame {
 	
 	private char lastTurn;
 
-	private char board[] = new char[9];
+	private char board[] = {OPEN_SPOT,OPEN_SPOT,OPEN_SPOT,OPEN_SPOT,OPEN_SPOT,OPEN_SPOT,OPEN_SPOT,OPEN_SPOT,OPEN_SPOT};
 	
 	public enum GameStatus{ GAME_GOES_ON, ITS_A_TIE, COMPUTER_WINS, HUMAN_PLAYER_WINS};
 	private GameStatus gameStatus;
@@ -23,16 +25,22 @@ public class TicTacToeGame {
 		board = new char[9];
 	}
 
-	public void setMove(char player, int location) {
-		if(location >= board.length || isOver() || lastTurn == player){
-			return;
-		}
-		if(board[location] == '\u0000'){
-			board[location] = player;
-			lastTurn = player;
+	public boolean setMove(char player, int location) {
+		System.out.println("location is "+ location);
+		Log.v("Burhan","board location is "+ board[location]);
+		
+		if(location >= board.length || isOver() ){
+			return false;
 		}
 		
-		checkForWin();
+		if(board[location] != HUMAN_PLAYER && board[location] != COMPUTER_PLAYER){
+			board[location] = player;
+			lastTurn = player;
+			checkForWin();
+			return true;
+		}
+		return false;
+		
 	}
 
 	private void checkForWin() {
