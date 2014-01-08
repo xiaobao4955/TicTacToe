@@ -7,6 +7,8 @@ public class TicTacToeGame {
 	public static final char HUMAN_PLAYER = 'X';
 	public static final char COMPUTER_PLAYER = 'O';
 	public static final char OPEN_SPOT = ' ';
+	
+	private char lastTurn;
 
 	private char board[] = new char[9];
 	
@@ -22,11 +24,12 @@ public class TicTacToeGame {
 	}
 
 	public void setMove(char player, int location) {
-		if(location >= board.length){
+		if(location >= board.length || isOver() || lastTurn == player){
 			return;
 		}
 		if(board[location] == '\u0000'){
 			board[location] = player;
+			lastTurn = player;
 		}
 		
 		checkForWin();
