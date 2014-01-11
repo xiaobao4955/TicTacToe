@@ -5,10 +5,13 @@ import android.util.Log;
 
 public class TicTacToeGame {
 
+	private static String TAG = "TicTacToeGame";
 	public static final int BOARD_SIZE = 9;
 	public static final char HUMAN_PLAYER = 'X';
 	public static final char COMPUTER_PLAYER = 'O';
 	public static final char OPEN_SPOT = ' ';
+
+	
 	
 	private char lastTurn;
 
@@ -22,12 +25,19 @@ public class TicTacToeGame {
 	}
 	
 	public void clearBoard() {
-		board = new char[9];
+		board = new char[BOARD_SIZE];
+		for (int i = 0; i < board.length; i++) {
+			board[i] = OPEN_SPOT;
+		}
 	}
 
 	public boolean setMove(char player, int location) {
-		System.out.println("location is "+ location);
-		Log.v("Burhan","board location is "+ board[location]);
+		
+		if(isOver()){
+			return false;
+		}
+		
+		Log.v(TAG,("New move. Player:"+ player+ "location: "+ board[location]));
 		
 		if(location >= board.length || isOver() ){
 			return false;
@@ -87,12 +97,25 @@ public class TicTacToeGame {
 					 board[6] == COMPUTER_PLAYER))
 					gameStatus = GameStatus.COMPUTER_WINS;
 			
-				// Check for tie
-				for (int i = 0; i < BOARD_SIZE; i++) {
-					// If we find a number, then no one has won yet
-					if (board[i] != HUMAN_PLAYER && board[i] != COMPUTER_PLAYER)
+				/* Check for tie or game goes on*/
+				if((gameStatus != GameStatus.COMPUTER_WINS) && (gameStatus != GameStatus.HUMAN_PLAYER_WINS) ){
+					/*count for open spots*/
+					int openSpots = 0;
+					for (int i = 0; i < BOARD_SIZE; i++) {
+						if(board[i] == OPEN_SPOT){
+							openSpots++;
+						}
+					}
+					if(openSpots == 0){
+						gameStatus = GameStatus.ITS_A_TIE;
+					}else{
 						gameStatus = GameStatus.GAME_GOES_ON;
+					}
 				}
+
+				
+
+				
 			
 	}
 
@@ -118,4 +141,22 @@ public class TicTacToeGame {
 	public GameStatus getGameStatus(){
 		return gameStatus;
 	}
+
+	public String getMessage() {
+		
+		switch (gameStatus) {
+		case COMPUTER_WINS:
+			return "Game Over! Computer Wins.";
+		case HUMAN_PLAYER_WINS:
+			return "Game Over! You Won. Congratulations!";
+		case ITS_A_TIE:
+			return "Game Over! It is a tie!.";
+		case GAME_GOES_ON:
+			return "Your turn-Computer's turn.";
+		default:
+			return "No message to deliever.";
+		}
+
+	}
+
 }

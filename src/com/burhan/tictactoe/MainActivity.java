@@ -70,6 +70,7 @@ public class MainActivity extends Activity {
 			updateView();
 		}
 	}
+	
 	private void updateView() {
 		char board[] = mGame.getBoard();
 		
@@ -84,8 +85,19 @@ public class MainActivity extends Activity {
 			}
 			
 		}
+		mInfoTextView.setText(mGame.getMessage());
+		if(mGame.isOver()){
+			disableAllTheBoardButtons();
+		}
 	}
 	
+	private void disableAllTheBoardButtons() {
+		for(Button button : mBoardButtons){
+			button.setEnabled(false);
+		}
+	}
+
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
