@@ -3,16 +3,18 @@ package com.burhan.tictactoe;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 public class MainActivity extends Activity {
 
+	private static final String TAG = "MainActivity";
 	private Button mBoardButtons[];
 	private TicTacToeGame mGame;
 	private TextView mInfoTextView;
@@ -48,7 +50,8 @@ public class MainActivity extends Activity {
 
 	private void startNewGame() {
 		mGame.newGame();
-		
+		Log.v(TAG, "startNewGame()");
+		Log.d(TAG, "startNewGame()");
 		/**/
 		for(int i=0;i<mBoardButtons.length;i++){
 			mBoardButtons[i].setText("");
@@ -60,13 +63,10 @@ public class MainActivity extends Activity {
 
 
 	private void setMove(char player, int location){
-		if(player==TicTacToeGame.COMPUTER_PLAYER){
-			Toast.makeText(this, ""+location , Toast.LENGTH_SHORT).show();
-		}
+
 		if (mBoardButtons[location].isEnabled()) {
 			boolean result =mGame.setMove(player, location);
 			updateView();
-			Toast.makeText(this, result ? player+"true":player+"false" , Toast.LENGTH_SHORT).show();
 		}
 	}
 	
