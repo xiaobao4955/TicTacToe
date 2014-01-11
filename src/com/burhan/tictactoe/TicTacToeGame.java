@@ -17,8 +17,10 @@ public class TicTacToeGame {
 
 	private char board[] = {OPEN_SPOT,OPEN_SPOT,OPEN_SPOT,OPEN_SPOT,OPEN_SPOT,OPEN_SPOT,OPEN_SPOT,OPEN_SPOT,OPEN_SPOT};
 	
-	public enum GameStatus{ GAME_GOES_ON, ITS_A_TIE, COMPUTER_WINS, HUMAN_PLAYER_WINS};
+	public enum GameStatus { GAME_GOES_ON, ITS_A_TIE, COMPUTER_WINS, HUMAN_PLAYER_WINS};
 	private GameStatus gameStatus;
+	
+	public enum DifficultyLevel {EASY, MEDIUM, HARD};	
 	
 	public TicTacToeGame() {
 		gameStatus = GameStatus.GAME_GOES_ON;
@@ -33,15 +35,16 @@ public class TicTacToeGame {
 
 	public boolean setMove(char player, int location) {
 		
-		if(isOver()){
+		/*a player cant make move twice at a time.*/
+		if((lastTurn - 0) == (player - 0)){
 			return false;
 		}
-		
-		Log.v(TAG,("New move. Player:"+ player+ "location: "+ board[location]));
 		
 		if(location >= board.length || isOver() ){
 			return false;
 		}
+		
+		Log.v(TAG,("New move. Player:"+ player+ "location: "+ board[location]));
 		
 		if(board[location] != HUMAN_PLAYER && board[location] != COMPUTER_PLAYER){
 			board[location] = player;
