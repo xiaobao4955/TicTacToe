@@ -10,13 +10,14 @@
 
     <TableLayout
         android:id="@+id/tableLayout1"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp" >
 
         <TableRow
             android:id="@+id/tableRow1"
-            android:gravity="center_horizontal" >
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
 
             <Button
                 android:id="@+id/button1"
@@ -42,7 +43,7 @@
 
         <TableRow
             android:id="@+id/tableRow2"
-             android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <Button
@@ -69,7 +70,7 @@
 
         <TableRow
             android:id="@+id/tableRow3"
-             android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <Button
@@ -101,9 +102,10 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tableLayout1"
         android:layout_below="@+id/tableLayout1"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="20dp"
         android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
