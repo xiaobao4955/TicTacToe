@@ -142,19 +142,19 @@ public class TicTacToeGame {
 		return gameStatus;
 	}
 
-	public String getMessage() {
+	public int getMessage() {
 		
 		switch (gameStatus) {
 		case COMPUTER_WINS:
-			return "Game Over! Computer Wins.";
+			return R.string.game_over_computer_wins_;
 		case HUMAN_PLAYER_WINS:
-			return "Game Over! You Won. Congratulations!";
+			return R.string.game_over_you_won_congratulations_;
 		case ITS_A_TIE:
-			return "Game Over! It is a tie!.";
+			return R.string.game_over_it_is_a_tie_;
 		case GAME_GOES_ON:
-			return "Your turn-Computer's turn.";
+			return R.string.your_turn_computer_s_turn_;
 		default:
-			return "No message to deliever.";
+			return R.string.no_message_to_deliever_;
 		}
 
 	}

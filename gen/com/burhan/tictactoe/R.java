@@ -49,7 +49,12 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
+        public static final int game_over_computer_wins_=0x7f050003;
+        public static final int game_over_it_is_a_tie_=0x7f050005;
+        public static final int game_over_you_won_congratulations_=0x7f050004;
         public static final int hello_world=0x7f050002;
+        public static final int no_message_to_deliever_=0x7f050007;
+        public static final int your_turn_computer_s_turn_=0x7f050006;
     }
     public static final class style {
         /** 

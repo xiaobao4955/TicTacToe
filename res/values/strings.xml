@@ -4,5 +4,10 @@
     <string name="app_name">TicTacToe</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="game_over_computer_wins_">Game Over! Computer Wins.</string>
+    <string name="game_over_you_won_congratulations_">Game Over! You Won. Congratulations!</string>
+    <string name="game_over_it_is_a_tie_">Game Over! It is a tie!.</string>
+    <string name="your_turn_computer_s_turn_">Your turn-Computer\'s turn.</string>
+    <string name="no_message_to_deliever_">No message to deliever.</string>
 
 </resources>

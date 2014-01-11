@@ -50,7 +50,6 @@ public class MainActivity extends Activity {
 
 	private void startNewGame() {
 		mGame.newGame();
-		Log.v(TAG, "startNewGame()");
 		Log.d(TAG, "startNewGame()");
 		/**/
 		for(int i=0;i<mBoardButtons.length;i++){
@@ -65,7 +64,7 @@ public class MainActivity extends Activity {
 	private void setMove(char player, int location){
 
 		if (mBoardButtons[location].isEnabled()) {
-			boolean result =mGame.setMove(player, location);
+			mGame.setMove(player, location);
 			updateView();
 		}
 	}
