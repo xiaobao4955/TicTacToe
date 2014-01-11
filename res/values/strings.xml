@@ -9,5 +9,8 @@
     <string name="game_over_it_is_a_tie_">Game Over! It is a tie!.</string>
     <string name="your_turn_computer_s_turn_">Your turn-Computer\'s turn.</string>
     <string name="no_message_to_deliever_">No message to deliever.</string>
+    <string name="new_game">New Game</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="quit">Quit</string>
 
 </resources>

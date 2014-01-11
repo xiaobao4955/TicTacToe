@@ -33,4 +33,6 @@ public class ComputerPlayer {
 	private void setDifficultyLevel(DifficultyLevel difficultyLevel) {
 		this.difficultyLevel = difficultyLevel;
 	}
+	
+
 }
