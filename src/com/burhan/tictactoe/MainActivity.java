@@ -1,12 +1,10 @@
 package com.burhan.tictactoe;
 
-import java.util.Arrays;
-
-import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.Color;
-import android.test.IsolatedContext;
+import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -18,6 +16,7 @@ public class MainActivity extends Activity {
 	private Button mBoardButtons[];
 	private TicTacToeGame mGame;
 	private TextView mInfoTextView;
+	private ComputerPlayer computerPlayer = new ComputerPlayer();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +26,7 @@ public class MainActivity extends Activity {
 		initUI();
 		startNewGame();
 		updateView();
-		
-		//test
-		setMove(TicTacToeGame.COMPUTER_PLAYER, 1);
-		setMove(TicTacToeGame.COMPUTER_PLAYER, 3);
-		setMove(TicTacToeGame.COMPUTER_PLAYER, 7);
+
 		
 	}
 
@@ -52,7 +47,7 @@ public class MainActivity extends Activity {
 	}
 
 	private void startNewGame() {
-		mGame.clearBoard();
+		mGame.newGame();
 		
 		/**/
 		for(int i=0;i<mBoardButtons.length;i++){
@@ -60,14 +55,18 @@ public class MainActivity extends Activity {
 			mBoardButtons[i].setEnabled(true);
 			mBoardButtons[i].setOnClickListener(new ButtonClickListener(i));
 		}
+		updateView();
 	}
 
 
 	private void setMove(char player, int location){
+		if(player==TicTacToeGame.COMPUTER_PLAYER){
+			Toast.makeText(this, ""+location , Toast.LENGTH_SHORT).show();
+		}
 		if (mBoardButtons[location].isEnabled()) {
 			boolean result =mGame.setMove(player, location);
-			Toast.makeText(this, result ?"true":"false" , Toast.LENGTH_SHORT).show();
 			updateView();
+			Toast.makeText(this, result ? player+"true":player+"false" , Toast.LENGTH_SHORT).show();
 		}
 	}
 	
@@ -101,10 +100,17 @@ public class MainActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
+		menu.add("New Game");
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		startNewGame();
+		return super.onOptionsItemSelected(item);
+	}
+	
 	class ButtonClickListener implements OnClickListener{
 
 		private int location;
@@ -118,6 +124,10 @@ public class MainActivity extends Activity {
 		public void onClick(View v) {
 			if(mBoardButtons[location].isEnabled()){
 				setMove(TicTacToeGame.HUMAN_PLAYER, location);
+			}
+			/*computers move*/
+			if(!mGame.isOver()){	
+				setMove(TicTacToeGame.COMPUTER_PLAYER, computerPlayer.makeMove(mGame.getBoard()));	
 			}
 		}
 		

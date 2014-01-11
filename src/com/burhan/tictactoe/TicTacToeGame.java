@@ -159,4 +159,9 @@ public class TicTacToeGame {
 
 	}
 
+	public void newGame() {
+		this.clearBoard();
+		gameStatus = GameStatus.GAME_GOES_ON;
+	}
+
 }
