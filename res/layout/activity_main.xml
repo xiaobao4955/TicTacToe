@@ -10,94 +10,100 @@
 
     <TableLayout
         android:id="@+id/tableLayout1"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true" >
+        android:layout_marginTop="5dp" >
 
         <TableRow
             android:id="@+id/tableRow1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:gravity="center_horizontal" >
 
             <Button
                 android:id="@+id/button1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="Button"
+                android:textSize="70dp" />
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="Button"
+                android:textSize="70dp" />
 
             <Button
                 android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="Button"
+                android:textSize="70dp" />
         </TableRow>
 
         <TableRow
             android:id="@+id/tableRow2"
-            android:layout_width="wrap_content"
+             android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
 
             <Button
                 android:id="@+id/button4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="Button"
+                android:textSize="70dp" />
 
             <Button
                 android:id="@+id/button5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="Button"
+                android:textSize="70dp" />
 
             <Button
                 android:id="@+id/button6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="Button"
+                android:textSize="70dp" />
         </TableRow>
 
         <TableRow
             android:id="@+id/tableRow3"
-            android:layout_width="wrap_content"
+             android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
 
             <Button
                 android:id="@+id/button7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="Button"
+                android:textSize="70dp" />
 
             <Button
                 android:id="@+id/button8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="Button"
+                android:textSize="70dp" />
 
             <Button
                 android:id="@+id/button9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="Button"
+                android:textSize="70dp" />
         </TableRow>
     </TableLayout>
 
     <TextView
         android:id="@+id/information"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tableLayout1"
         android:layout_below="@+id/tableLayout1"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="20dp"
         android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="20dp" />
 
 </RelativeLayout>
